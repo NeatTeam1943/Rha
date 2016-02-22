@@ -3,8 +3,9 @@
 
 #include <string>
 #include "Commands/Command.h"
-#include <Subsystems/Chassis.h>
-#include <Subsystems/Intake.h>
+#include "Subsystems/Chassis.h"
+#include "Subsystems/Intake.h"
+#include "Subsystems/Trigo.h"
 #include "OI.h"
 #include "WPILib.h"
 
@@ -23,6 +24,7 @@ public:
 	static OI *oi;
 	static Chassis *chassis;
 	static Intake *intake;
+	static Trigo *trigo;
 };
 
 #endif

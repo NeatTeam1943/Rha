@@ -5,6 +5,7 @@
 OI *CommandBase::oi = NULL;
 Chassis *CommandBase::chassis = NULL;
 Intake *CommandBase::intake = NULL;
+Trigo *CommandBase::trigo = NULL;
 
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
@@ -24,4 +25,5 @@ void CommandBase::init()
 	oi = new OI();
 	chassis = new Chassis();
 	intake = new Intake();
+	trigo = new Trigo();
 }
