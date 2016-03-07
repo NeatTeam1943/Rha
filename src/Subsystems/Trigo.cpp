@@ -8,6 +8,7 @@
 
 Trigo::Trigo() :
 		Subsystem("Trigo") {
+	this->isAutoRaise = new DigitalInput(RAISETRIGO_SWITCH);
 	this->left = new TrigoWing(TRIGO_LEFT_MOTOR, TRIGO_LEFT_UPSWITCH,
 			 TRIGO_LEFT_DOWNSWITCH);
 	this->right = new TrigoWing(TRIGO_RIGHT_MOTOR, TRIGO_RIGHT_UPSWITCH,
@@ -35,6 +36,11 @@ void Trigo::SetPower(float p, TrigoSide s) {
 		this->right->SetMotor(p);
 		break;
 	}
+}
+
+bool Trigo::IsAutoRaise()
+{
+	return this->isAutoRaise->Get();
 }
 
 bool Trigo::IsUp(TrigoSide s) {

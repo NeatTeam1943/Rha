@@ -8,11 +8,13 @@ class Intake: public Subsystem
 {
 private:
 	CANTalon *axis;
+	DigitalInput *inSwitch;
 
 public:
 	Intake();
 	void InitDefaultCommand();
 	void SetPower(float power);
+	bool GetIsIn();
 };
 
 #endif

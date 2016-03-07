@@ -12,8 +12,24 @@ void DriveJoystick::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DriveJoystick::Execute() {
-
-	chassis->Drive(this->stick);
+	if (this->stick->GetPOV(0) > -1) {
+		switch (this->stick->GetPOV(0)) {
+		case 0:
+			chassis->Drive(0.5, 0);
+			break;
+		case 90:
+			chassis->Drive(0, -0.5);
+			break;
+		case 180:
+			chassis->Drive(-0.5, 0);
+			break;
+		case 270:
+			chassis->Drive(0, 0.5);
+			break;
+		}
+	} else {
+		chassis->Drive(this->stick);
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()

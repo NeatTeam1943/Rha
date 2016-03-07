@@ -15,6 +15,7 @@ const int TRIGO_LEFT_UPSWITCH = 2;
 const int TRIGO_RIGHT_DOWNSWITCH  = 0;
 const int TRIGO_LEFT_DOWNSWITCH = 1;
 const int INTAKE_SWITCH = 4;
+const int RAISETRIGO_SWITCH = 9;
 
 const int JOYSTICKPORT = 0;
 

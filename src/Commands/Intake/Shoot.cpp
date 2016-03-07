@@ -1,35 +1,37 @@
-#include "Drive.h"
+#include "Shoot.h"
+#include "Subsystems/Intake.h"
 
-Drive::Drive(float mag, float rot) {
+Shoot::Shoot(float p) {
 	// Use Requires() here to declare subsystem dependencies
-	Requires(chassis);
-	this->mag = mag;
-	this->rot = rot;
-
+	Requires(intake);
+	if (p < 0)
+		this->p = p;
+	else
+		this->p = -p;
 }
 
 // Called just before this Command runs the first time
-void Drive::Initialize() {
-	chassis->Drive(0, 0);
+void Shoot::Initialize() {
+	intake->SetPower(0);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Drive::Execute() {
-	chassis->Drive(mag, rot);
+void Shoot::Execute() {
+	intake->SetPower(this->p);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Drive::IsFinished() {
-	return false;
+bool Shoot::IsFinished() {
+	return !intake->GetIsIn();
 }
 
 // Called once after isFinished returns true
-void Drive::End() {
-	chassis->Drive(0, 0);
+void Shoot::End() {
+	intake->SetPower(0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Drive::Interrupted() {
+void Shoot::Interrupted() {
 	End();
 }

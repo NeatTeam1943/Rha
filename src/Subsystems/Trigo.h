@@ -9,12 +9,14 @@ class Trigo: public Subsystem {
 private:
 	TrigoWing *left;
 	TrigoWing *right;
+	DigitalInput *isAutoRaise;
 public:
 	enum TrigoSide {
 		kRight, kLeft, kBoth
 	};
 	Trigo();
 	void InitDefaultCommand();
+	bool IsAutoRaise();
 	bool IsUp(TrigoSide side = kBoth);
 	bool IsDown(TrigoSide side = kBoth);
 	void SetPower(float power, TrigoSide side = kBoth);

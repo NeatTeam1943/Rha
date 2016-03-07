@@ -1,15 +1,16 @@
-#ifndef Drive_H
-#define Drive_H
+#ifndef Shoot_H
+#define Shoot_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
 
-class Drive: public CommandBase {
+class Shoot: public CommandBase
+{
 private:
-float rot;
-float mag;
+	float p;
+
 public:
-	Drive(float magnitude, float rotation);
+	Shoot(float power);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

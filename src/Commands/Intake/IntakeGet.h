@@ -1,15 +1,15 @@
-#ifndef Drive_H
-#define Drive_H
+#ifndef IntakeGet_H
+#define IntakeGet_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
 
-class Drive: public CommandBase {
+class IntakeGet: public CommandBase
+{
 private:
-float rot;
-float mag;
+	float power;
 public:
-	Drive(float magnitude, float rotation);
+	IntakeGet(float power);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
